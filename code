@@ -1,0 +1,72 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load data
+df = pd.read_csv("C:\\Users\\vardh\\Downloads\\advertising (1).csv")
+
+print(df.head())
+print(df.info())
+print(df.describe())
+print(df.isnull().sum())
+# Correlation heatmap (fixed)
+plt.figure(figsize=(10,6))
+numeric_df = df.select_dtypes(include=['int64','float64'])
+sns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm')
+plt.title("Correlation Heatmap")
+plt.show()
+
+sns.histplot(df['Age'], kde=True)
+plt.title("Age Distribution")
+plt.show()
+sns.boxplot(data=df, x='Clicked on Ad', y='Daily Time Spent on Site')
+plt.show()
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+x = np.linspace(-10, 10, 100)
+y = sigmoid(x)
+
+plt.plot(x, y)
+plt.title("Sigmoid Function")
+plt.xlabel("x")
+plt.ylabel("sigmoid(x)")
+plt.grid()
+plt.show()
+X = df[['Daily Time Spent on Site','Age','Area Income','Daily Internet Usage']]
+y = df['Clicked on Ad']
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42
+)
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, classification_report
+
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
+accuracy = accuracy_score(y_test, y_pred)
+
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1 Score:", f1)
+print("Accuracy:", accuracy)
+print("\nClassification Report:\n", classification_report(y_test, y_pred))
+from sklearn.metrics import confusion_matrix
+
+cm = confusion_matrix(y_test, y_pred)
+
+sns.heatmap(cm, annot=True, fmt='g', cmap='Blues')
+plt.title("Confusion Matrix")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.show()
+
+
+
