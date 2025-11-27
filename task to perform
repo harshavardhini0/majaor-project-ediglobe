@@ -1,0 +1,15 @@
+Part -1 – CONCEPTS
+Explain about Logistic Regression in a brief note
+• Part -2 – Logistic Regression using Python – Develop model
+Use input data file “advertising.csv”
+Upload the Data set using Pandas , use numpy , matplotlib and seaborn
+libraries Show Exploratory data analysis
+What are the evaluation metrics you have used ? show in numbers.
+Show necessary visualizations.
+: Heat map, Sigmoid Function ( give a try )
+Implement Logistic Regression in Scikit-Learn
+Performance Metrics : Precision , recall and F1 score .
+
+Data Set Drive Link:
+https://drive.google.com/drive/u/3/folders/1_L20XBoEpDpOMls88ZvyY2evM7p
+EKFVv
