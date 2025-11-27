@@ -1,0 +1,29 @@
+Brief Note on Logistic Regression
+
+Logistic Regression is a supervised machine learning algorithm used for binary classification problems, where the
+output has only two possible classes (e.g., Yes/No, 0/1, Buy/Not Buy).
+
+Instead of predicting continuous values, logistic regression predicts probabilities using the sigmoid function,
+which maps any real value between 0 and 1.
+
+The decision boundary is set using a threshold (usually 0.5). If probability ≥ 0.5 → class 1, else class 0.
+It uses Maximum Likelihood Estimation (MLE) to find the best-fitting model.
+
+Advantages:
+
+Simple, fast, and easy to interpret
+
+Works well for linearly separable data
+
+Gives probabilistic outcomes
+
+Applications:
+
+Customer purchase prediction
+
+Email spam detection
+
+Medical diagnosis
+
+Churn prediction
+
